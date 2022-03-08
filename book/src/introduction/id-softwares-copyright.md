@@ -1,0 +1,1 @@
+# id Software's Copyright

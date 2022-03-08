@@ -1,0 +1,6 @@
+[book]
+authors = ["Garm"]
+language = "en"
+multilingual = false
+src = "src"
+title = "The Unofficial DOOM Specs"
