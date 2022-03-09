@@ -1,0 +1,686 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>LINEDEFS - The Unofficial DOOM Specs</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../disclaimer.html">Disclaimer</a></li><li class="chapter-item expanded affix "><a href="../copyright-notice.html">Copyright Notice</a></li><li class="chapter-item expanded "><a href="../introduction/index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introduction/id-software's-copyright-and-the-shareware-version.html"><strong aria-hidden="true">1.1.</strong> id Software's Copyright and the Shareware Version</a></li><li class="chapter-item expanded "><a href="../introduction/what's-new.html"><strong aria-hidden="true">1.2.</strong> What's New</a></li></ol></li><li class="chapter-item expanded "><a href="../basics/index.html"><strong aria-hidden="true">2.</strong> Basics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../basics/pwads.html"><strong aria-hidden="true">2.1.</strong> Pwads</a></li><li class="chapter-item expanded "><a href="../basics/doom-versions.html"><strong aria-hidden="true">2.2.</strong> DOOM versions</a></li><li class="chapter-item expanded "><a href="../basics/terminology-conventions.html"><strong aria-hidden="true">2.3.</strong> Terminology conventions</a></li></ol></li><li class="chapter-item expanded "><a href="../list-of-doom.wad-directory-entries.html"><strong aria-hidden="true">3.</strong> List of DOOM.WAD Directory Entries</a></li><li class="chapter-item expanded "><a href="../the-levels/index.html"><strong aria-hidden="true">4.</strong> The Levels</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../the-levels/ex-my-or-ma-pxy.html"><strong aria-hidden="true">4.1.</strong> ExMy or MAPxy</a></li><li class="chapter-item expanded "><a href="../the-levels/things.html"><strong aria-hidden="true">4.2.</strong> THINGS</a></li><li class="chapter-item expanded "><a href="../the-levels/linedefs.html" class="active"><strong aria-hidden="true">4.3.</strong> LINEDEFS</a></li><li class="chapter-item expanded "><a href="../the-levels/sidedefs.html"><strong aria-hidden="true">4.4.</strong> SIDEDEFS</a></li><li class="chapter-item expanded "><a href="../the-levels/vertexes.html"><strong aria-hidden="true">4.5.</strong> VERTEXES</a></li><li class="chapter-item expanded "><a href="../the-levels/segs.html"><strong aria-hidden="true">4.6.</strong> SEGS</a></li><li class="chapter-item expanded "><a href="../the-levels/ssectors.html"><strong aria-hidden="true">4.7.</strong> SSECTORS</a></li><li class="chapter-item expanded "><a href="../the-levels/nodes.html"><strong aria-hidden="true">4.8.</strong> NODES</a></li><li class="chapter-item expanded "><a href="../the-levels/sectors.html"><strong aria-hidden="true">4.9.</strong> SECTORS</a></li><li class="chapter-item expanded "><a href="../the-levels/reject.html"><strong aria-hidden="true">4.10.</strong> REJECT</a></li><li class="chapter-item expanded "><a href="../the-levels/blockmap.html"><strong aria-hidden="true">4.11.</strong> BLOCKMAP</a></li></ol></li><li class="chapter-item expanded "><a href="../graphics/index.html"><strong aria-hidden="true">5.</strong> Graphics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../graphics/picture-format.html"><strong aria-hidden="true">5.1.</strong> Picture Format</a></li></ol></li><li class="chapter-item expanded "><a href="../sounds-and-music/index.html"><strong aria-hidden="true">6.</strong> Sounds and Music</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../sounds-and-music/pc-speaker-sound-effects.html"><strong aria-hidden="true">6.1.</strong> PC Speaker Sound Effects</a></li><li class="chapter-item expanded "><a href="../sounds-and-music/soundcard-sound-effects.html"><strong aria-hidden="true">6.2.</strong> Soundcard Sound Effects</a></li><li class="chapter-item expanded "><a href="../sounds-and-music/music.html"><strong aria-hidden="true">6.3.</strong> Music</a></li><li class="chapter-item expanded "><a href="../sounds-and-music/genmidi.html"><strong aria-hidden="true">6.4.</strong> GENMIDI</a></li><li class="chapter-item expanded "><a href="../sounds-and-music/dmxgus.html"><strong aria-hidden="true">6.5.</strong> DMXGUS</a></li></ol></li><li class="chapter-item expanded "><a href="../miscellaneous-lumps/index.html"><strong aria-hidden="true">7.</strong> Miscellaneous Lumps</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../miscellaneous-lumps/playpal.html"><strong aria-hidden="true">7.1.</strong> PLAYPAL</a></li><li class="chapter-item expanded "><a href="../miscellaneous-lumps/colormap.html"><strong aria-hidden="true">7.2.</strong> COLORMAP</a></li><li class="chapter-item expanded "><a href="../miscellaneous-lumps/endoom.html"><strong aria-hidden="true">7.3.</strong> ENDOOM</a></li><li class="chapter-item expanded "><a href="../miscellaneous-lumps/texture-1-and-texture-2.html"><strong aria-hidden="true">7.4.</strong> TEXTURE1 and TEXTURE2</a></li><li class="chapter-item expanded "><a href="../miscellaneous-lumps/pnames.html"><strong aria-hidden="true">7.5.</strong> PNAMES</a></li><li class="chapter-item expanded "><a href="../miscellaneous-lumps/dem-os.html"><strong aria-hidden="true">7.6.</strong> DEMOs</a></li><li class="chapter-item expanded "><a href="../miscellaneous-lumps/level-changes-from-1.2-to-1.666-doom.wad.html"><strong aria-hidden="true">7.7.</strong> Level changes from 1.2 to 1.666 DOOM.WAD</a></li></ol></li><li class="chapter-item expanded "><a href="../savegame-files.html"><strong aria-hidden="true">8.</strong> Savegame Files</a></li><li class="chapter-item expanded "><a href="../the-doom.exe-file/index.html"><strong aria-hidden="true">9.</strong> The DOOM.EXE File</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../the-doom.exe-file/version-1.2-doom.exe-data-segment-overview.html"><strong aria-hidden="true">9.1.</strong> Version 1.2 DOOM.EXE Data Segment Overview</a></li><li class="chapter-item expanded "><a href="../the-doom.exe-file/version-1.666-doom.exe-data-segment-overview.html"><strong aria-hidden="true">9.2.</strong> Version 1.666 DOOM.EXE Data Segment Overview</a></li><li class="chapter-item expanded "><a href="../the-doom.exe-file/detail-on-some-exe-data-structures.html"><strong aria-hidden="true">9.3.</strong> Detail on some EXE Data Structures</a></li></ol></li><li class="chapter-item expanded "><a href="../appendices/index.html"><strong aria-hidden="true">10.</strong> Appendices</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../appendices/backus-naur-form-definitions-of-wad-elements.html"><strong aria-hidden="true">10.1.</strong> Backus-Naur Form definitions of WAD elements</a></li><li class="chapter-item expanded "><a href="../appendices/doom-engine-limits.html"><strong aria-hidden="true">10.2.</strong> DOOM engine limits</a></li><li class="chapter-item expanded "><a href="../appendices/doom.wad-changes-and-errors.html"><strong aria-hidden="true">10.3.</strong> DOOM.WAD changes and errors</a></li><li class="chapter-item expanded "><a href="../appendices/a-blockmap-algorithm.html"><strong aria-hidden="true">10.4.</strong> A BLOCKMAP algorithm</a></li><li class="chapter-item expanded "><a href="../appendices/other-helpful-documents.html"><strong aria-hidden="true">10.5.</strong> Other helpful documents</a></li><li class="chapter-item expanded "><a href="../appendices/acknowledgments.html"><strong aria-hidden="true">10.6.</strong> Acknowledgments</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Unofficial DOOM Specs</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="linedefs"><a class="header" href="#linedefs">LINEDEFS</a></h1>
+<pre><code>Each linedef represents a line from one of the VERTEXES to another,
+and each linedef's record is 14 bytes, containing 7 &lt;short&gt; fields:
+
+(1) from the VERTEX with this number (the first vertex is 0).
+(2) to the VERTEX with this number (31 is the 32nd vertex).
+(3) flags, see [4-3-1] below.
+(4) types, see [4-3-2] below.
+(5) is a &quot;tag&quot; or &quot;trigger&quot; number which ties this line's effect type
+      to all SECTORS that have the same tag number (in their last
+      field).
+(6) number of the &quot;right&quot; SIDEDEF for this linedef.
+(7) &quot;left&quot; SIDEDEF, if this line adjoins 2 SECTORS. Otherwise, it is
+      equal to -1 (FFFF hex).
+
+  &quot;right&quot; and &quot;left&quot; are based on the direction of the linedef as
+indicated by the &quot;from&quot; and &quot;to&quot;, or &quot;start&quot; and &quot;end&quot;, VERTEXES.
+This sketch should make it clear:
+
+             left side               right side
+    start -----------------&gt; end &lt;----------------- start
+             right side              left side
+
+  IMPORTANT: All lines must have a right side. If it is a one-sided
+line, then it must go the proper direction, so its single side is
+facing the sector it is part of. DOOM will crash on a level that has
+a line with no right side.
+
+
+[4-3-1]: Linedef Flags
+----------------------
+
+  The third &lt;short&gt; field of each linedef controls some attributes of
+that line. These attributes (aka flags) are indicated by bits. If the
+bit is set (equal to 1), the condition is true for that line. If the
+bit is not set (equal to 0), the condition is not true. Note that the
+&quot;unpegged&quot; flags cannot be independently set for the two SIDEDEFs of
+a line. Here's a list of the flags, followed by a discussion of each:
+
+bit     Condition
+
+0       Impassible
+1       Block Monsters
+2       Two-sided
+3       Upper Unpegged
+4       Lower Unpegged
+5       Secret
+6       Block Sound
+7       Not on Map
+8       Already on Map
+9-15    unused
+
+  0 (Impassible) - Players and monsters cannot cross this line. Note that
+if there is no sector on the other side, they can't go through the line
+anyway, regardless of the flags.
+
+  1 (Block Monsters) - Monsters cannot cross this line.
+
+  2 (Two-sided) - The linedef's two sidedefs can have &quot;-&quot; as a texture,
+which in this case means &quot;transparent&quot;. If this flag is not set, the
+sidedefs can't be transparent: if &quot;-&quot; is viewed, it will result in the
+&quot;hall of mirrors&quot; effect. However, a linedef CAN have two non-transparent
+sidedefs, even if this flag is not set, as long as it is between two
+sectors.
+  Another side effect of this flag is that if it is set, then gunfire
+(pistol, shotgun, chaingun) can go through it. If this flag is not set,
+gunfire cannot go through the line. Projectiles (rockets, plasma etc.)
+are not restricted this way. They can go through as long as there's a
+sector on the other side (and the sector heights allow it).
+  Finally, monsters can see through and attack through two-sided lines,
+despite any of the line's other flag settings and textures (once again,
+provided sector heights and the REJECT [4-10] allow it).
+
+  3 (Upper unpegged) - The upper texture is pasted onto the wall from
+the top down instead of from the bottom up like usual.
+  Upper textures normally have the bottom of the wall texture to be
+drawn lined up with the bottom of the &quot;upper&quot; space in which it is
+to be drawn (sidedef Y offsets then apply [4-4]). This can result
+in the upper texture being misaligned with a neighboring &quot;middle&quot;
+texture. To help solve this problem, common at &quot;windows&quot;, this flag
+can be set.
+  If the upper texture is unpegged, it is drawn with the wall texture's
+top row at the ceiling, just like middle and lower textures are usually
+drawn. This can help realign the upper texture with a neighbor.
+
+  The article TEXTURES, cited in appendix [A-4] gives a great deal
+more explanation on the &quot;unpegged&quot; flags and how to use them.
+
+  4 (Lower unpegged) - Lower and middle textures are drawn from the
+bottom up, instead of from the top down like usual.
+  This is also commonly used on lower textures under &quot;windows&quot;. It is
+also used on doorjambs, because when the door opens, the sector ceiling
+is rising, so the &quot;sides&quot; (the doorjambs), which are middle textures,
+will be drawn from the ever-changing ceiling height down, and thus will
+appear to be &quot;moving&quot;. Unpegging them will make them be drawn from the
+floor up, and since the floor height doesn't change when a door opens,
+then will not move.
+  There's one slight difference with lower textures being unpegged -
+they are not necessarily drawn with the bottom of the wall texture placed
+at the bottom of the wall. The height of the facing sector and the height
+of the wall texture are taken into account. So if the sector is 160 high,
+and the wall texture is 128 high, then lower unpegged will cause the 32nd
+row of the wall texture to be at the floor, NOT the 128th row. This of
+course excludes sidedef Y offsets, which are applied AFTER unpegged
+flags do their stuff.
+
+  5 (Secret) - On the automap, this line appears in red like a normal
+solid wall that has nothing on the other side. This is useful in
+protecting secret doors and such. Note that if the sector on the other
+side of this &quot;secret&quot; line has its floor height HIGHER than the sector
+on the facing side of the secret line, then the map will show the lines
+beyond and thus give up the secret.
+  Also note that this flag has NOTHING to do with the SECRETS ratio on
+inter-level screens. That's done with special sector 9 (see [4-9-1]).
+
+  6 (Block Sound) - For purposes of monsters hearing sounds and thus
+becoming alerted. Every time a player fires a weapon, the &quot;sound&quot; of
+it travels from sector to sector, alerting all non-deaf monsters in
+each new sector. But the sound will die when it hits a second line
+with this flag. The sound can cross one such line, but not two. All
+possible routes for the sound to take are taken, so it can get to
+some out-of-the-way places. Another thing that blocks sound, instantly,
+is incompatible sector heights. Sound can go from a sector with 0/72
+floor/ceiling heights to one with 64/192, but the sound CANNOT go
+from a 0/128 sector to an adjacent 128/256 sector.
+
+  7 (Not on Map) - The line is not shown on the automap, even if the
+computer all-map power up is acquired.
+
+  8 (Already on Map) - When the level is begun, this line is already
+on the automap, even though it hasn't been seen (in the display) yet.
+Normally lines only get mapped once part of the line has been seen in
+the display window.
+
+  Automap line colors: Red lines indicate the line is one-sided, that
+there is a sector on only one side (or the line is marked secret).
+Brown lines are between two sectors with different floor heights but
+the same ceiling height. Yellow lines are between two sectors with
+different ceiling heights and the same or different floor heights.
+Gray lines are as-yet-unseen lines revealed by the computer all-map.
+Without the all-map, lines between sectors with identical floor and
+ceiling heights don't show up. With it, they are gray.
+
+
+[4-3-2]: Linedef Types
+----------------------
+
+  The &lt;short&gt; in field 4 of 7 of a linedef can control various special
+effects like doors opening, floors moving, etc. Some of them must be
+activated by &quot;using&quot; them, like switches, and some of them are activated
+when they are walked over. There are a huge number of ways to use these
+effects, but it's all done by using one of a hundred or so line function
+types.
+  The most common way they work is this: a player walks across a line
+or activates (presses the spacebar or the use key) right in front of
+a line. That line has a function type that is non-zero. It also has
+a tag number. Then ALL sectors on the level with the same tag number,
+that are not already engaged in some action, undergo the effects that
+the linedef type number dictates. Note that the tag numbers are NOT the
+sector numbers, nor the linedef numbers. A tag number is in a lindef's
+5th &lt;short&gt; field, and a sector's last &lt;short&gt; field.
+
+Explanations of all the abbreviations in the table:
+
+Val     The value of the linedef &quot;type&quot; field (#4). If you want them
+          in numerical order, use SORT or something.
+*       This line function only works in 1.666 and up
+Class   The category of the effect
+Act     Activation. How the linedef's effect is activated.
+n       does NOT require a tag number (see note 5 below)
+W       walk-over activation
+S       switch (&quot;use&quot; - default config is spacebar)
+G       gunfire (pistol, shotgun, chaingun) cross or hit line
+1       the line may be activated once only
+R       potentially repeatable activation
+&amp;       affected sectors &quot;locked out&quot; from further changes. See notes 9/10.
+m       Monster actions can activate the line's effect
+Sound   The type of noise made by moving sectors
+Speed   How quickly a floor moves up/down etc.
+Tm      Time - how long it &quot;rests&quot;; doors &quot;rest&quot; when they've gone as
+          high as they're going to go, lifts &quot;rest&quot; at the bottom, etc.
+Chg     Change - some of them cause a floor texture change and/or special
+          sector change. See note 11 below.
+T       Trigger model, see note 11 below.
+N       Numeric model, see note 11 below.
+X       Floor texture is transferred, and Sector type 0.
+P       Special Sector types 4, 5, 7, 9, 11, 16 transfer.
+Effect  What happens to the affected sector(s).
+open    The ceiling goes (up) to LEC-4.
+close   The ceiling goes (down) to the floor level.
+up      Will move up at specified speed if the destination is above.
+          If the destination is below, it arrives there instantly.
+down    Will move down at specified speed if the destination is below.
+          If the destination is above, it arrives there instantly.
+open/   The door can be activated while moving. If it's open or opening,
+  close   it closes. If it's closed or closing, it opens, then pauses,
+          then closes.
+open,   The door can only be activated if it is in the closed state.
+  close   It opens, pauses, then closes.
+lift    The floor goes down to LIF, rests, then back up to original height.
+L       lowest
+H       highest
+C       ceiling
+F       floor
+E       adjacent sectors, excluding the affected sector
+I       adjacent sectors, including the affected sector
+nh      next-higher, i.e. LEF that is higher than source.
+
+  More notes and longer discussions related to these terms:
+
+1.  &quot;Adjacent&quot; is any sector that shares a LINEDEF with the tagged sector
+(sectors are adjacent to themselves).
+2.  All S activations and the teleporters only work from the RIGHT side
+of the linedef.
+3.  For teleporters, if more than 1 sector is tagged the same and each
+has a teleport landing THING, then the lowest numbered sector is the
+destination.
+4.  Floors that raise up an absolute height (up 24, 32) will go up INTO
+ceilings, so using the WR and SR types of these in levels is unwise.
+5.  A few of the linedef types don't require tag numbers: the end-level
+switches, the scrolling wall type 48 (0x30), and the &quot;manual&quot; doors which
+operate on the sector facing the left side of the linedef with the manual
+door line type.
+666.  Here's the terms id uses for different types of activations:
+        Manual: nSR and nS1 doors
+        Trigger: W1
+        Retrigger: WR
+        Switch: S1
+        Button: SR
+        Impact: G
+        Effect: line 48 is the only one
+7.  The &quot;moving floors&quot; go up to a maximum of HIF and go down to a minimum
+of LIF. Why they sometimes go up first and sometimes down is still a
+mystery to me.
+8.  The &quot;crushing ceilings&quot; go from their original ceiling height down
+to (floor + 8), then back up. While crushing a creature, their downward
+speed slows considerably. &quot;Fast hurt&quot; does about 120% total damage per
+crush, and &quot;slow hurt&quot; grabs you and does somewhere around 1000-2000%
+total damage per crush.
+9.  The &amp; symbol indicates that a sector cannot be affected any more by
+other line types after it has performed this effect, even if it has
+finished. These are the floor-texture-changers and... (keep reading)
+10. Moving floors and crushing ceilings also &quot;lock out&quot; further changes
+to the sectors affected, EXCEPT for restarting the moving floor or
+crushing ceiling. If a line triggers a type 6 crushing ceiling in a
+sector, then it is stopped, then ANY other line with a &quot;crush&quot; type that
+is tagged to the same sector will cause the type 6 crusher to start
+again, with its original maximum and minimum ceiling heights.
+11. Some line types cause floor textures and/or some special sector types
+(see [4-9-1]) to transfer to the tagged sector. The tagged sectors' floor
+and/or special sector (SS) type will change to match that of the &quot;model&quot;
+sector. The TRIGGER model gets the info from the sector that the
+activating line's right side faces. The NUMERIC model gets the info
+from the sector on the other side of the lowest numbered two-sided
+linedef that has one side in the tagged sector.
+  All of these &quot;change&quot; line types transfer the floor texture. Also,
+they all can pass a special sector trait of &quot;0&quot; or &quot;nothing&quot;, i.e. if
+the destination is an acid-floor or &quot;damaging&quot; sector, then any of these
+lines can erase the damaging effect. Lines 59, 93, 37, 84, and 9 (see
+note 12 for more specifics on line type 9) also have the ability to
+transfer the &quot;secret&quot; trait of SS 9, and the damaging traits of SS
+4, 5, 7, 11, and 16. None of the &quot;blinking light&quot; effects of SSs can be
+transferred. SS 4 &quot;blinks&quot; and causes damage, but only the damaging part
+can be transferred. SS 11 also turns off god-mode and causes a level END
+when health &lt;11%, this characteristic is part of SS 11, and cannot be
+isolated via fancy transfers.
+12. Line type 9 is a special one. The definitive example is the chainsaw
+pillar on E1M2. Take the lowest-numbered linedef that has a sidedef in
+the tagged sector. If that linedef is one-sided, nothing happens. If it
+is 2-sided, then the tagged sector's floor will move down to match the
+2nd sector's floor height (or it will jump instantly up if it was below,
+like other floors that are supposed to move &quot;down&quot;).
+  If this 2nd sector CONTAINS the tagged sector, i.e. all the linedefs
+with a sidedef in the tagged sector have their other sidedef in the 2nd
+sector, then this 2nd sector is the &quot;donut&quot;. This donut's floor will
+move &quot;up&quot; to match the floor height of the sector on the other side of
+the DONUT's lowest-numbered linedef, excluding those linedefs that are
+shared with the &quot;donut hole&quot; central sector. Also, the donut will undergo
+a floor texture change and special sector type change to match the
+&quot;outside&quot;. The donut sector does not have to be completely surrounded
+by another sector (i.e. it can have 1-sided linedefs), but if its
+lowest-numbered linedef is not 2-sided, a minor glitch results: the donut
+and the donut-hole both move to a strange height, and the donut changes
+floor texture to TLITE6_6 - the last flat in the directory.
+  Note that if the donut hole and the donut are both going to move, the
+donut hole is going to move to match the height that the donut is &quot;going
+to&quot;. In other words, the whole thing will be at a single height when
+they're done, and this is the height of the &quot;outside&quot; sector that borders
+the donut.
+  Whew!
+13. Line types 30 and 96, &quot;up ShortestLowerTexture&quot; means that affected
+sector(s) floors go up a number of units equal to the height of the
+shortest &quot;lower&quot; texture facing out from the sector(s).
+14. STAIRS. Any sector tagged to a stair-raiser line will go up 8. Now
+find the lowest-numbered 2-sided linedef whose RIGHT side faces this
+sector (the first step). The sector on the other side of the lindedef
+becomes the next step, and its floor height changes to be 8 above the
+previous step (it raises up if it was lower, or it changes instantly if
+it was higher). This process continues as long as there are 2-sided
+lines with right sides facing each successive step. A couple things
+will stop the stairway:
+    (a) no 2-sided linedef whose right side faces the current step
+    (b) a sector with a different floor texture
+    (c) a sector that has already been moved by this stairway (this stops
+          ouroboros stairways that circle around to repeat themselves)
+    (d) &quot;locked-out&quot; sectors that can't change their floor height anymore
+  The component steps of a stairway can have any shape or size.
+  The turbo stairs (100, 127) work just like regular stairs except that
+each step goes up 16 not 8, and rising steps can crush things between
+themselves and the ceiling.
+15. Line types 78 and 85 do NOTHING as of version 1.666.
+
+
+
+Val   Class Act  Sound Speed Tm Chg Effect
+
+SPECIAL (Continuous effect, doesn't need triggereing)
+
+ 48   Spec  n--  -     -     -  -   Scrolling wall
+
+LOCAL DOORS (&quot;MANUAL&quot; DOORS)
+
+  1   mDoor nSRm door  med   4  -   open/close
+ 26   mDoor nSR  door  med   4  -   open/close BLUE KEY
+ 28   mDoor nSR  door  med   4  -   open/close RED KEY
+ 27   mDoor nSR  door  med   4  -   open/close YELLOW KEY
+ 31   mDoor nS1  door  med   -  -   open
+ 32   mDoor nS1  door  med   -  -   open BLUE KEY
+ 33   mDoor nS1  door  med   -  -   open RED KEY
+ 34   mDoor nS1  door  med   -  -   open YELLOW KEY
+ 46   mDoor nGR  door  med   -  -   open
+117 * mDoor nSR  blaze turbo 4  -   open/close
+118 * mDoor nS1  blaze turbo -  -   open
+
+REMOTE DOORS
+
+  4   rDoor  W1  door  med   4  -   open,close
+ 29   rDoor  S1  door  med   4  -   open,close
+ 90   rDoor  WR  door  med   4  -   open,close
+ 63   rDoor  SR  door  med   4  -   open,close
+  2   rDoor  W1  door  med   -  -   open
+103   rDoor  S1  door  med   -  -   open
+ 86   rDoor  WR  door  med   -  -   open
+ 61   rDoor  SR  door  med   -  -   open
+  3   rDoor  W1  door  med   -  -   close
+ 50   rDoor  S1  door  med   -  -   close
+ 75   rDoor  WR  door  med   -  -   close
+ 42   rDoor  SR  door  med   -  -   close
+ 16   rDoor  W1  door  med   30 -   close, then opens
+ 76   rDoor  WR  door  med   30 -   close, then opens
+108 * rDoor  W1  blaze turbo 4  -   open,close
+111 * rDoor  WR  blaze turbo 4  -   open,close
+105 * rDoor  S1  blaze turbo 4  -   open,close
+114 * rDoor  SR  blaze turbo 4  -   open,close
+109 * rDoor  W1  blaze turbo -  -   open
+112 * rDoor  S1  blaze turbo -  -   open
+106 * rDoor  WR  blaze turbo -  -   open
+115 * rDoor  SR  blaze turbo -  -   open
+110 * rDoor  W1  blaze turbo -  -   close
+113 * rDoor  S1  blaze turbo -  -   close
+107 * rDoor  WR  blaze turbo -  -   close
+116 * rDoor  SR  blaze turbo -  -   close
+133 * rDoor  S1  blaze turbo -  -   open BLUE KEY
+ 99 * rDoor  SR  blaze turbo -  -   open BLUE KEY
+135 * rDoor  S1  blaze turbo -  -   open RED KEY
+134 * rDoor  SR  blaze turbo -  -   open RED KEY
+137 * rDoor  S1  blaze turbo -  -   open YELLOW KEY
+136 * rDoor  SR  blaze turbo -  -   open YELLOW KEY
+
+CEILINGS
+
+ 40   Ceil   W1  mover slow  -  -   up to HEC
+ 41   Ceil   S1  mover slow  -  -   down to floor
+ 43   Ceil   SR  mover slow  -  -   down to floor
+ 44   Ceil   W1  mover slow  -  -   down to floor + 8
+ 49   Ceil   S1  mover slow  -  -   down to floor + 8
+ 72   Ceil   WR  mover slow  -  -   down to floor + 8
+
+LIFTS
+
+ 10   Lift   W1  lift  fast  3  -   lift
+ 21   Lift   S1  lift  fast  3  -   lift
+ 88   Lift   WRm lift  fast  3  -   lift
+ 62   Lift   SR  lift  fast  3  -   lift
+121 * Lift   W1  lift  turbo 3  -   lift
+122 * Lift   S1  lift  turbo 3  -   lift
+120 * Lift   WR  lift  turbo 3  -   lift
+123 * Lift   SR  lift  turbo 3  -   lift
+
+FLOORS
+
+119 * Floor  W1  mover slow  -  -   up to nhEF
+128 * Floor  WR  mover slow  -  -   up to nhEF
+ 18   Floor  S1  mover slow  -  -   up to nhEF
+ 69   Floor  SR  mover slow  -  -   up to nhEF
+ 22   Floor  W1&amp; mover slow  -  TX  up to nhEF
+ 95   Floor  WR&amp; mover slow  -  TX  up to nhEF
+ 20   Floor  S1&amp; mover slow  -  TX  up to nhEF
+ 68   Floor  SR&amp; mover slow  -  TX  up to nhEF
+ 47   Floor  G1&amp; mover slow  -  TX  up to nhEF
+  5   Floor  W1  mover slow  -  -   up to LIC
+ 91   Floor  WR  mover slow  -  -   up to LIC
+101   Floor  S1  mover slow  -  -   up to LIC
+ 64   Floor  SR  mover slow  -  -   up to LIC
+ 24   Floor  G1  mover slow  -  -   up to LIC
+130 * Floor  W1  mover turbo -  -   up to nhEF
+131 * Floor  S1  mover turbo -  -   up to nhEF
+129 * Floor  WR  mover turbo -  -   up to nhEF
+132 * Floor  SR  mover turbo -  -   up to nhEF
+ 56   Floor  W1&amp; mover slow  -  -   up to LIC - 8, CRUSH
+ 94   Floor  WR&amp; mover slow  -  -   up to LIC - 8, CRUSH
+ 55   Floor  S1  mover slow  -  -   up to LIC - 8, CRUSH
+ 65   Floor  SR  mover slow  -  -   up to LIC - 8, CRUSH
+ 58   Floor  W1  mover slow  -  -   up 24
+ 92   Floor  WR  mover slow  -  -   up 24
+ 15   Floor  S1&amp; mover slow  -  TX  up 24
+ 66   Floor  SR&amp; mover slow  -  TX  up 24
+ 59   Floor  W1&amp; mover slow  -  TXP up 24
+ 93   Floor  WR&amp; mover slow  -  TXP up 24
+ 14   Floor  S1&amp; mover slow  -  TX  up 32
+ 67   Floor  SR&amp; mover slow  -  TX  up 32
+140 * Floor  S1  mover med   -  -   up 512
+ 30   Floor  W1  mover slow  -  -   up ShortestLowerTexture
+ 96   Floor  WR  mover slow  -  -   up ShortestLowerTexture
+ 38   Floor  W1  mover slow  -  -   down to LEF
+ 23   Floor  S1  mover slow  -  -   down to LEF
+ 82   Floor  WR  mover slow  -  -   down to LEF
+ 60   Floor  SR  mover slow  -  -   down to LEF
+ 37   Floor  W1  mover slow  -  NXP down to LEF
+ 84   Floor  WR  mover slow  -  NXP down to LEF
+ 19   Floor  W1  mover slow  -  -   down to HEF
+102   Floor  S1  mover slow  -  -   down to HEF
+ 83   Floor  WR  mover slow  -  -   down to HEF
+ 45   Floor  SR  mover slow  -  -   down to HEF
+ 36   Floor  W1  mover fast  -  -   down to HEF + 8
+ 71   Floor  S1  mover fast  -  -   down to HEF + 8
+ 98   Floor  WR  mover fast  -  -   down to HEF + 8
+ 70   Floor  SR  mover fast  -  -   down to HEF + 8
+  9   Floor  S1  mover slow  -  NXP donut (see note 12 above)
+
+STAIRS
+
+  8   Stair  W1  mover slow  -  -   stairs
+  7   Stair  S1  mover slow  -  -   stairs
+100 * Stair  W1  mover turbo -  -   stairs (each up 16 not 8) + crush
+127 * Stair  S1  mover turbo -  -   stairs (each up 16 not 8) + crush
+
+MOVING FLOORS
+
+ 53   MvFlr  W1&amp; lift  slow  3  -   start moving floor
+ 54   MvFlr  W1&amp; -     -     -  -   stop moving floor
+ 87   MvFlr  WR&amp; lift  slow  3  -   start moving floor
+ 89   MvFlr  WR&amp; -     -     -  -   stop moving floor
+
+CRUSHING CEILINGS
+
+  6   Crush  W1&amp; crush med   0  -   start crushing, fast hurt
+ 25   Crush  W1&amp; crush med   0  -   start crushing, slow hurt
+ 73   Crush  WR&amp; crush slow  0  -   start crushing, slow hurt
+ 77   Crush  WR&amp; crush med   0  -   start crushing, fast hurt
+ 57   Crush  W1&amp; -     -     -  -   stop crush
+ 74   Crush  WR&amp; -     -     -  -   stop crush
+141 * Crush  W1&amp; none? slow  0  -   start crushing, slow hurt &quot;Silent&quot;
+
+EXIT LEVEL
+
+ 11   Exit  nS-  clunk -     -  -   End level, go to next level
+ 51   Exit  nS-  clunk -     -  -   End level, go to secret level
+ 52   Exit  nW-  clunk -     -  -   End level, go to next level
+124 * Exit  nW-  clunk -     -  -   End level, go to secret level
+
+TELEPORT
+
+ 39   Telpt  W1m tport -     -  -   Teleport
+ 97   Telpt  WRm tport -     -  -   Teleport
+125 * Telpt  W1m tport -     -  -   Teleport monsters only
+126 * Telpt  WRm tport -     -  -   Teleport monsters only
+
+LIGHT
+
+ 35   Light  W1  -     -     -  -   0
+104   Light  W1  -     -     -  -   LE (light level)
+ 12   Light  W1  -     -     -  -   HE (light level)
+ 13   Light  W1  -     -     -  -   255
+ 79   Light  WR  -     -     -  -   0
+ 80   Light  WR  -     -     -  -   HE (light level)
+ 81   Light  WR  -     -     -  -   255
+ 17   Light  W1  -     -     -  -   Light blinks (see [4-9-1] type 3)
+138 * Light  SR  clunk -     -  -   255
+139 * Light  SR  clunk -     -  -   0
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../the-levels/things.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../the-levels/sidedefs.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../the-levels/things.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../the-levels/sidedefs.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

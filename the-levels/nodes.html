@@ -1,0 +1,392 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>NODES - The Unofficial DOOM Specs</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../disclaimer.html">Disclaimer</a></li><li class="chapter-item expanded affix "><a href="../copyright-notice.html">Copyright Notice</a></li><li class="chapter-item expanded "><a href="../introduction/index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introduction/id-software's-copyright-and-the-shareware-version.html"><strong aria-hidden="true">1.1.</strong> id Software's Copyright and the Shareware Version</a></li><li class="chapter-item expanded "><a href="../introduction/what's-new.html"><strong aria-hidden="true">1.2.</strong> What's New</a></li></ol></li><li class="chapter-item expanded "><a href="../basics/index.html"><strong aria-hidden="true">2.</strong> Basics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../basics/pwads.html"><strong aria-hidden="true">2.1.</strong> Pwads</a></li><li class="chapter-item expanded "><a href="../basics/doom-versions.html"><strong aria-hidden="true">2.2.</strong> DOOM versions</a></li><li class="chapter-item expanded "><a href="../basics/terminology-conventions.html"><strong aria-hidden="true">2.3.</strong> Terminology conventions</a></li></ol></li><li class="chapter-item expanded "><a href="../list-of-doom.wad-directory-entries.html"><strong aria-hidden="true">3.</strong> List of DOOM.WAD Directory Entries</a></li><li class="chapter-item expanded "><a href="../the-levels/index.html"><strong aria-hidden="true">4.</strong> The Levels</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../the-levels/ex-my-or-ma-pxy.html"><strong aria-hidden="true">4.1.</strong> ExMy or MAPxy</a></li><li class="chapter-item expanded "><a href="../the-levels/things.html"><strong aria-hidden="true">4.2.</strong> THINGS</a></li><li class="chapter-item expanded "><a href="../the-levels/linedefs.html"><strong aria-hidden="true">4.3.</strong> LINEDEFS</a></li><li class="chapter-item expanded "><a href="../the-levels/sidedefs.html"><strong aria-hidden="true">4.4.</strong> SIDEDEFS</a></li><li class="chapter-item expanded "><a href="../the-levels/vertexes.html"><strong aria-hidden="true">4.5.</strong> VERTEXES</a></li><li class="chapter-item expanded "><a href="../the-levels/segs.html"><strong aria-hidden="true">4.6.</strong> SEGS</a></li><li class="chapter-item expanded "><a href="../the-levels/ssectors.html"><strong aria-hidden="true">4.7.</strong> SSECTORS</a></li><li class="chapter-item expanded "><a href="../the-levels/nodes.html" class="active"><strong aria-hidden="true">4.8.</strong> NODES</a></li><li class="chapter-item expanded "><a href="../the-levels/sectors.html"><strong aria-hidden="true">4.9.</strong> SECTORS</a></li><li class="chapter-item expanded "><a href="../the-levels/reject.html"><strong aria-hidden="true">4.10.</strong> REJECT</a></li><li class="chapter-item expanded "><a href="../the-levels/blockmap.html"><strong aria-hidden="true">4.11.</strong> BLOCKMAP</a></li></ol></li><li class="chapter-item expanded "><a href="../graphics/index.html"><strong aria-hidden="true">5.</strong> Graphics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../graphics/picture-format.html"><strong aria-hidden="true">5.1.</strong> Picture Format</a></li></ol></li><li class="chapter-item expanded "><a href="../sounds-and-music/index.html"><strong aria-hidden="true">6.</strong> Sounds and Music</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../sounds-and-music/pc-speaker-sound-effects.html"><strong aria-hidden="true">6.1.</strong> PC Speaker Sound Effects</a></li><li class="chapter-item expanded "><a href="../sounds-and-music/soundcard-sound-effects.html"><strong aria-hidden="true">6.2.</strong> Soundcard Sound Effects</a></li><li class="chapter-item expanded "><a href="../sounds-and-music/music.html"><strong aria-hidden="true">6.3.</strong> Music</a></li><li class="chapter-item expanded "><a href="../sounds-and-music/genmidi.html"><strong aria-hidden="true">6.4.</strong> GENMIDI</a></li><li class="chapter-item expanded "><a href="../sounds-and-music/dmxgus.html"><strong aria-hidden="true">6.5.</strong> DMXGUS</a></li></ol></li><li class="chapter-item expanded "><a href="../miscellaneous-lumps/index.html"><strong aria-hidden="true">7.</strong> Miscellaneous Lumps</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../miscellaneous-lumps/playpal.html"><strong aria-hidden="true">7.1.</strong> PLAYPAL</a></li><li class="chapter-item expanded "><a href="../miscellaneous-lumps/colormap.html"><strong aria-hidden="true">7.2.</strong> COLORMAP</a></li><li class="chapter-item expanded "><a href="../miscellaneous-lumps/endoom.html"><strong aria-hidden="true">7.3.</strong> ENDOOM</a></li><li class="chapter-item expanded "><a href="../miscellaneous-lumps/texture-1-and-texture-2.html"><strong aria-hidden="true">7.4.</strong> TEXTURE1 and TEXTURE2</a></li><li class="chapter-item expanded "><a href="../miscellaneous-lumps/pnames.html"><strong aria-hidden="true">7.5.</strong> PNAMES</a></li><li class="chapter-item expanded "><a href="../miscellaneous-lumps/dem-os.html"><strong aria-hidden="true">7.6.</strong> DEMOs</a></li><li class="chapter-item expanded "><a href="../miscellaneous-lumps/level-changes-from-1.2-to-1.666-doom.wad.html"><strong aria-hidden="true">7.7.</strong> Level changes from 1.2 to 1.666 DOOM.WAD</a></li></ol></li><li class="chapter-item expanded "><a href="../savegame-files.html"><strong aria-hidden="true">8.</strong> Savegame Files</a></li><li class="chapter-item expanded "><a href="../the-doom.exe-file/index.html"><strong aria-hidden="true">9.</strong> The DOOM.EXE File</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../the-doom.exe-file/version-1.2-doom.exe-data-segment-overview.html"><strong aria-hidden="true">9.1.</strong> Version 1.2 DOOM.EXE Data Segment Overview</a></li><li class="chapter-item expanded "><a href="../the-doom.exe-file/version-1.666-doom.exe-data-segment-overview.html"><strong aria-hidden="true">9.2.</strong> Version 1.666 DOOM.EXE Data Segment Overview</a></li><li class="chapter-item expanded "><a href="../the-doom.exe-file/detail-on-some-exe-data-structures.html"><strong aria-hidden="true">9.3.</strong> Detail on some EXE Data Structures</a></li></ol></li><li class="chapter-item expanded "><a href="../appendices/index.html"><strong aria-hidden="true">10.</strong> Appendices</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../appendices/backus-naur-form-definitions-of-wad-elements.html"><strong aria-hidden="true">10.1.</strong> Backus-Naur Form definitions of WAD elements</a></li><li class="chapter-item expanded "><a href="../appendices/doom-engine-limits.html"><strong aria-hidden="true">10.2.</strong> DOOM engine limits</a></li><li class="chapter-item expanded "><a href="../appendices/doom.wad-changes-and-errors.html"><strong aria-hidden="true">10.3.</strong> DOOM.WAD changes and errors</a></li><li class="chapter-item expanded "><a href="../appendices/a-blockmap-algorithm.html"><strong aria-hidden="true">10.4.</strong> A BLOCKMAP algorithm</a></li><li class="chapter-item expanded "><a href="../appendices/other-helpful-documents.html"><strong aria-hidden="true">10.5.</strong> Other helpful documents</a></li><li class="chapter-item expanded "><a href="../appendices/acknowledgments.html"><strong aria-hidden="true">10.6.</strong> Acknowledgments</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Unofficial DOOM Specs</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="nodes"><a class="header" href="#nodes">NODES</a></h1>
+<pre><code>A detailed explanation of the nodes follows this list of a node's
+structure in the wad file.
+  Each node is 28 bytes in 14 &lt;short&gt; fields:
+
+(1)  X coordinate of partition line's start
+(2)  Y coordinate of partition line's start
+(3)  DX, change in X to end of partition line
+(4)  DY, change in Y to end of partition line
+
+  If (1) to (4) equaled 64, 128, -64, -64, the partition line would
+go from (64,128) to (0,64).
+
+(5)  Y upper bound for right bounding-box.\
+(6)  Y lower bound                         All SEGS in right child of node
+(7)  X lower bound                         must be within this box.
+(8)  X upper bound                        /
+(9)  Y upper bound for left bounding box. \
+(10) Y lower bound                         All SEGS in left child of node
+(11) X lower bound                         must be within this box.
+(12) X upper bound                        /
+(13) a NODE or SSECTOR number for the right child. If bit 15 of this
+       &lt;short&gt; is set, then the rest of the number represents the
+       child SSECTOR. If not, the child is a recursed node.
+(14) a NODE or SSECTOR number for the left child.
+
+  The NODES lump is by far the most difficult to understand of all the
+data structures in DOOM. A new level won't display right without a valid
+set of precalculated nodes, ssectors, and segs.
+  Here I will explain what the nodes are for, and how they can be
+generated automatically from the set of linedefs, sidedefs, and
+vertices. I am NOT including any code or a pseudo-code algorithm, like
+I do for the BLOCKMAP (appendix [A-3]). This is for reasons of space,
+and more importantly, the fact that I haven't written any such
+algorithm myself. If there's to be some &quot;node code&quot; published here, it
+will have to be donated by someone, well-commented, well-organized, in
+pseudo-code, and 100% effective! So the odds are long against it.
+
+  The NODES are branches in a binary space partition (BSP) that divides
+up the level and is used to determine which walls are in front of others,
+a process know as hidden-surface removal. The SSECTORS (sub-sectors) and
+SEGS (segments) lumps are necessary parts of the structure.
+  A BSP tree is normally used in 3d space, but DOOM uses a simplified
+2d version of the scheme. Basically, the idea is to keep dividing the
+map into smaller spaces until each of the smallest spaces contains only
+wall segments which cannot possibly occlude (block from view) other
+walls in its own space. The smallest, undivided spaces will become
+SSECTORS. Each wall segment is part or all of a linedef (and thus a
+straight line), and becomes a SEG. All of the divisions are kept track
+of in a binary tree structure, which is used to greatly speed the
+rendering process (drawing what is seen). How does this binary tree
+lead to faster rendering? I have no idea.
+  Only the SECTORS need to be divided. The parts of the levels that are
+&quot;outside&quot; sectors are ignored. Also, only the walls need to be kept
+track of. The sides of any created ssectors which are not parts of
+linedefs do not become segs.
+  Some sectors do not require any dividing. Consider a square sector.
+All the walls are orthogonal to the floor (the walls are all straight
+up and down), so from any viewpoint inside the square, none of its
+four walls can possibly block the view of any of the others. Now
+imagine a sector shaped like this drawing:
+
++--------------.------+   The * is the viewpoint, looking -&gt;, east. The
+|               .     |   diagonal wall marked @ @ can't be seen at all,
+|               /\    |@  and the vertical wall marked @@@ is partially
+|  *-&gt;        /   @\  |@  occluded by the other diagonal wall. This sector
+|           /       @\|@  needs to be divided. Suppose the diagonal wall
++---------/               is extended, as shown by the two dots (..):
+
+now each of the two resulting sub-sectors are sufficient, because while
+in either one, no wall that is part of that sub-sector blocks any other.
+  In general, being a convex polygon is the goal of a ssector. Convex
+means a line connecting any two points that are inside the polygon will
+be completely contained in the polygon. All triangles and rectangles are
+convex, but not all quadrilaterals. In doom's simple Euclidean space,
+convex also means that all the interior angles of the polygon are less
+than or equal to 180 degrees.
+  Now, an additional complication arises because of the two-sided
+linedef. Its two sides are in different sectors, so they will end up
+in different ssectors too. Thus every two-sided linedef becomes two segs
+(or more), or you could say that every sidedef becomes a seg. Creating
+segs from sidedefs is a good idea, because the seg can then be associated
+with a sector. Two segs that aren't part of the same sector cannot
+possibly be in the same ssector, so further division is required of any
+set of segs that aren't all from the same sector.
+  Whenever a division needs to be made, a SEG is picked, somewhat
+arbitrarily, which along with its imaginary extensions, forms a &quot;knife&quot;
+that divides the remaining space in two (thus binary). This seg is the
+partition line of a node, and the remaining spaces on either side of
+the partition line become the right and left CHILDREN of the node. All
+partition lines have a direction, and the space on the &quot;right&quot; side of
+the partition is the right child of the node; the space on the &quot;left&quot;
+is the left child (there's a cute sketch in [4-3]: LINEDEFS that shows
+how right and left relate to the start and end of a line). Note that if
+there does not exist a seg in the remaining space which can serve as a
+partition line, then there is no need for a further partition, i.e.
+it's a ssector and a &quot;leaf&quot; on the node tree.
+  If the &quot;knife&quot; passes through any lines/segs (but not at vertices),
+they are split at the intersection, with one part going to each child.
+A two-sided linedef, which is two segs, when split results in four segs.
+A two sider that lies along an extension of the partition line has each
+of its two segs go to opposite sides of the partition line. This is the
+eventual fate of ALL segs on two-sided linedefs.
+  As the partition lines are picked and the nodes created, a strict
+ordering must be maintained. The node tree is created from the &quot;top&quot;
+down. After the first division is made, then the left child is divided,
+then its left child, and so on, until a node's child is a ssector. The
+n you move back up the tree one branch, and divide the right child, then
+its left, etc. ALWAYS left first, on the way down.
+  Since there will be splits along the way, there is no way to know
+ahead of time how many nodes and ssectors there will be at the end.
+And the top of the tree, the node that is created first, is given the
+highest number. So as nodes and ssectors are created, they are simply
+numbered in order from 0 on up, and when it's all done (nothing's left
+but ssectors), then ALL the numbers, for nodes and ssectors, are
+reversed. If there's 485 nodes, then 485 becomes 0 and 0 becomes 485.
+  Here is another fabulous drawing which will explain everything.
++ is a vertex, - and | indicate linedefs, the . . indicates an
+extension of a partition line. The &lt;, &gt;, and ^ symbols indicate the
+directions of partition lines. All the space within the drawing is
+actual level space, i.e. sectors.
+
+      +-----+-------+-------+            0                     (5)
+      |     |       |       |         /     \      ==&gt;       /     \
+      |  e  |^  f   |^  g   |       1         4           (4)       (1)
+      |     |4      |5      |     /   \      / \         /   \      / \
++---- + . . +-------+-------+    2     3    e   5      (3)   (2)   2  (0)
+|     |           &lt; 0       |   / \   / \      / \     / \   / \      / \
+|  a  |       b             |  a   b c   d    f   g   6   5 4   3    1   0
+|     |^                    |
+| . . |2. . . . . +---------+ The order in which      How the elements are
+|     |           |1 &gt;        the node tree's         numbered when it's
+|  c  |^    d     |           elements get made.      finished.
+|     |3          |           0 = node                (5) = node
++-----+-----------+           a = ssector             6 = ssector
+
+  1. Make segs from all the linedefs. There are 5 two-sided lines here.
+  2. Pick the vertex at 0 and go west (left). This is the first
+       partition line. Note the . . extension line.
+  3. Pick the vertex at 1, going east. The backwards extension . . cuts
+       the line 3&gt;2&gt;, and the unlabeled left edge line. The left edge
+       was one seg, it becomes two. The 3&gt;2&gt; line was two segs, it
+       becomes four. New vertices are created at the intersection
+       points to do this.
+  4. Pick the (newly created) vertex at 2. Now the REMAINING spaces on
+       both sides of the partition line are suitable for ssectors. The
+       left one is first, it becomes a, the right b. Note that ssector
+       a has 3 segs, and ssector b has 5 segs. The . . imaginary lines
+       are NOT segs.
+  5. Back up the tree, and take 1's right branch. Pick 3. Once again, we
+       can make 2 ssectors, c and d, 3 segs each. Back up the tree to 0.
+  6. Pick 4. Now the left side is a ssector, it becomes e. But the right
+       side is not, it needs one more node. Pick 5, make f and g.
+  7. All done, so reverse all the ordination of the nodes and the
+       ssectors. Ssector 0's segs become segs 0-2, ssector 1's segs
+       become segs 3-7, etc. The segs are written sequentially according
+       to the ssector numbering.
+
+  If we want to create an algorithm to do the nodes automatically, it
+needs to be able to pick partition lines automatically. From studying
+the original maps, it appears that they usually chose a linedef which
+divides the child's space roughly in &quot;half&quot;. This is restricted by the
+availability of a seg in a good location, with a good angle. Also, the
+&quot;half&quot; refers to the total number of ssectors in any particular child,
+which we have no way of knowing when we start! Optimization methods are
+probably used, or maybe brute force, trying every candidate seg until
+the &quot;best&quot; one is found.
+  What is the best possible choice for a partition line? Well, there
+are apparently two goals when creating a BSP tree, which are partially
+exclusive. One is to have a balanced tree, i.e. for any node, there are
+about the same total number of sub-nodes on either side of it. The other
+goal is to minimize the number of &quot;splits&quot; necessary, in this case, the
+number of seg splits needed, along with the accompanying new vertices
+and extra segs. Only a very primitive and specially constructed set of
+linedefs could avoid having any splits, so they are inevitable. It's
+just that with some choices of partition lines, there end up being
+fewer splits. For example,
+
++--------------+       If a and b are chosen as partition lines,
+|              |       there will be four extra vertices needed,
++---+      +---+ &lt; A   and this shape becomes five ssectors and
+    |^    ^|           16 segs. If A and B are chosen, however,
++---+a    b+---+ &lt; B   there are no extra vertices, and only three
+|              |       ssectors and 12 segs.
++--------------+
+
+  I've read that for a &quot;small&quot; number of polygons (less than 1000?),
+which is what we're dealing with in a doom level, one should definitely
+try to minimize splits, and not worry about balancing the tree. I can't
+say for sure, but it does appear that the original levels strive for
+this. Their trees are not totally unbalanced, but there are some parts
+where many successive nodes each have a node and a ssector as children
+(this is unbalanced). And there are a lot of examples to prove that the
+number of extra segs and vertices they create is very low compared to
+what it could be. I think the algorithm that id Software used tried to
+optimize both, but with fewer splits being more important.
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../the-levels/ssectors.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../the-levels/sectors.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../the-levels/ssectors.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../the-levels/sectors.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

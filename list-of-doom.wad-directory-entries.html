@@ -1,0 +1,388 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>List of DOOM.WAD Directory Entries - The Unofficial DOOM Specs</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="disclaimer.html">Disclaimer</a></li><li class="chapter-item expanded affix "><a href="copyright-notice.html">Copyright Notice</a></li><li class="chapter-item expanded "><a href="introduction/index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/id-software's-copyright-and-the-shareware-version.html"><strong aria-hidden="true">1.1.</strong> id Software's Copyright and the Shareware Version</a></li><li class="chapter-item expanded "><a href="introduction/what's-new.html"><strong aria-hidden="true">1.2.</strong> What's New</a></li></ol></li><li class="chapter-item expanded "><a href="basics/index.html"><strong aria-hidden="true">2.</strong> Basics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="basics/pwads.html"><strong aria-hidden="true">2.1.</strong> Pwads</a></li><li class="chapter-item expanded "><a href="basics/doom-versions.html"><strong aria-hidden="true">2.2.</strong> DOOM versions</a></li><li class="chapter-item expanded "><a href="basics/terminology-conventions.html"><strong aria-hidden="true">2.3.</strong> Terminology conventions</a></li></ol></li><li class="chapter-item expanded "><a href="list-of-doom.wad-directory-entries.html" class="active"><strong aria-hidden="true">3.</strong> List of DOOM.WAD Directory Entries</a></li><li class="chapter-item expanded "><a href="the-levels/index.html"><strong aria-hidden="true">4.</strong> The Levels</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="the-levels/ex-my-or-ma-pxy.html"><strong aria-hidden="true">4.1.</strong> ExMy or MAPxy</a></li><li class="chapter-item expanded "><a href="the-levels/things.html"><strong aria-hidden="true">4.2.</strong> THINGS</a></li><li class="chapter-item expanded "><a href="the-levels/linedefs.html"><strong aria-hidden="true">4.3.</strong> LINEDEFS</a></li><li class="chapter-item expanded "><a href="the-levels/sidedefs.html"><strong aria-hidden="true">4.4.</strong> SIDEDEFS</a></li><li class="chapter-item expanded "><a href="the-levels/vertexes.html"><strong aria-hidden="true">4.5.</strong> VERTEXES</a></li><li class="chapter-item expanded "><a href="the-levels/segs.html"><strong aria-hidden="true">4.6.</strong> SEGS</a></li><li class="chapter-item expanded "><a href="the-levels/ssectors.html"><strong aria-hidden="true">4.7.</strong> SSECTORS</a></li><li class="chapter-item expanded "><a href="the-levels/nodes.html"><strong aria-hidden="true">4.8.</strong> NODES</a></li><li class="chapter-item expanded "><a href="the-levels/sectors.html"><strong aria-hidden="true">4.9.</strong> SECTORS</a></li><li class="chapter-item expanded "><a href="the-levels/reject.html"><strong aria-hidden="true">4.10.</strong> REJECT</a></li><li class="chapter-item expanded "><a href="the-levels/blockmap.html"><strong aria-hidden="true">4.11.</strong> BLOCKMAP</a></li></ol></li><li class="chapter-item expanded "><a href="graphics/index.html"><strong aria-hidden="true">5.</strong> Graphics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="graphics/picture-format.html"><strong aria-hidden="true">5.1.</strong> Picture Format</a></li></ol></li><li class="chapter-item expanded "><a href="sounds-and-music/index.html"><strong aria-hidden="true">6.</strong> Sounds and Music</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sounds-and-music/pc-speaker-sound-effects.html"><strong aria-hidden="true">6.1.</strong> PC Speaker Sound Effects</a></li><li class="chapter-item expanded "><a href="sounds-and-music/soundcard-sound-effects.html"><strong aria-hidden="true">6.2.</strong> Soundcard Sound Effects</a></li><li class="chapter-item expanded "><a href="sounds-and-music/music.html"><strong aria-hidden="true">6.3.</strong> Music</a></li><li class="chapter-item expanded "><a href="sounds-and-music/genmidi.html"><strong aria-hidden="true">6.4.</strong> GENMIDI</a></li><li class="chapter-item expanded "><a href="sounds-and-music/dmxgus.html"><strong aria-hidden="true">6.5.</strong> DMXGUS</a></li></ol></li><li class="chapter-item expanded "><a href="miscellaneous-lumps/index.html"><strong aria-hidden="true">7.</strong> Miscellaneous Lumps</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="miscellaneous-lumps/playpal.html"><strong aria-hidden="true">7.1.</strong> PLAYPAL</a></li><li class="chapter-item expanded "><a href="miscellaneous-lumps/colormap.html"><strong aria-hidden="true">7.2.</strong> COLORMAP</a></li><li class="chapter-item expanded "><a href="miscellaneous-lumps/endoom.html"><strong aria-hidden="true">7.3.</strong> ENDOOM</a></li><li class="chapter-item expanded "><a href="miscellaneous-lumps/texture-1-and-texture-2.html"><strong aria-hidden="true">7.4.</strong> TEXTURE1 and TEXTURE2</a></li><li class="chapter-item expanded "><a href="miscellaneous-lumps/pnames.html"><strong aria-hidden="true">7.5.</strong> PNAMES</a></li><li class="chapter-item expanded "><a href="miscellaneous-lumps/dem-os.html"><strong aria-hidden="true">7.6.</strong> DEMOs</a></li><li class="chapter-item expanded "><a href="miscellaneous-lumps/level-changes-from-1.2-to-1.666-doom.wad.html"><strong aria-hidden="true">7.7.</strong> Level changes from 1.2 to 1.666 DOOM.WAD</a></li></ol></li><li class="chapter-item expanded "><a href="savegame-files.html"><strong aria-hidden="true">8.</strong> Savegame Files</a></li><li class="chapter-item expanded "><a href="the-doom.exe-file/index.html"><strong aria-hidden="true">9.</strong> The DOOM.EXE File</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="the-doom.exe-file/version-1.2-doom.exe-data-segment-overview.html"><strong aria-hidden="true">9.1.</strong> Version 1.2 DOOM.EXE Data Segment Overview</a></li><li class="chapter-item expanded "><a href="the-doom.exe-file/version-1.666-doom.exe-data-segment-overview.html"><strong aria-hidden="true">9.2.</strong> Version 1.666 DOOM.EXE Data Segment Overview</a></li><li class="chapter-item expanded "><a href="the-doom.exe-file/detail-on-some-exe-data-structures.html"><strong aria-hidden="true">9.3.</strong> Detail on some EXE Data Structures</a></li></ol></li><li class="chapter-item expanded "><a href="appendices/index.html"><strong aria-hidden="true">10.</strong> Appendices</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendices/backus-naur-form-definitions-of-wad-elements.html"><strong aria-hidden="true">10.1.</strong> Backus-Naur Form definitions of WAD elements</a></li><li class="chapter-item expanded "><a href="appendices/doom-engine-limits.html"><strong aria-hidden="true">10.2.</strong> DOOM engine limits</a></li><li class="chapter-item expanded "><a href="appendices/doom.wad-changes-and-errors.html"><strong aria-hidden="true">10.3.</strong> DOOM.WAD changes and errors</a></li><li class="chapter-item expanded "><a href="appendices/a-blockmap-algorithm.html"><strong aria-hidden="true">10.4.</strong> A BLOCKMAP algorithm</a></li><li class="chapter-item expanded "><a href="appendices/other-helpful-documents.html"><strong aria-hidden="true">10.5.</strong> Other helpful documents</a></li><li class="chapter-item expanded "><a href="appendices/acknowledgments.html"><strong aria-hidden="true">10.6.</strong> Acknowledgments</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Unofficial DOOM Specs</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="list-of-doomwad-directory-entries"><a class="header" href="#list-of-doomwad-directory-entries">List of DOOM.WAD Directory Entries</a></h1>
+<pre><code>There are over 2000 entries in the DOOM.WAD directory. Most of them
+can be easily described in groups, and so are not explicitly mentioned
+in this list. This includes the sprites (see [4-2-1] for sprite names
+and [5] for the sprite lump naming system), the wall patches ([8-4] and
+[8-5] have more info), the flats (chapter [6]), the sounds and songs
+(chapter [7]), and the map data lumps (chapter [4]). All the others
+are listed here.
+  There have been several changes from version to version. The &quot;Ver&quot;
+column indicates in which doom versions the lump exists:
+
+___     no indication means it is in every version. Most are like this.
+1.1     it was in 1.0 and 1.1, but not in 1.2 and later. It is obsolete.
+1.2     it is not in 1.1 and earlier, only in 1.2 and up.
+1.6     it is not in 1.2 and earlier, only in 1.666 and up.
+r       it is only in the registered version, not the shareware.
+1       it is only in DOOM 1, it is not in DOOM 2.
+2       it is only in DOOM 2, it is not in DOOM 1.
+
+  In the lump names, x (and y and e) indicates variable ASCII
+characters, and * can be replaced by an ASCII string (up to the
+8-byte lumpname limit).
+
+LumpName  Ver   Description
+--------  ---   -----------
+PLAYPAL         fourteen 256 color palettes. See [8-1].
+COLORMAP        maps colors in the palette down to darker ones. [8-2].
+ENDOOM          text message displayed when you exit to DOS. [8-3].
+DEMOx           x=1-3, are the demos. [8-6].
+ExMy            subsequent entries define a single level's data. [4].
+MAPxy     2     like ExMy, but for DOOM 2.
+TEXTURE1        list of wall texture names and their composition data,
+                  used in the SIDEDEF portion of each level. [8-4].
+TEXTURE2  r     more wall texture compositions.
+PNAMES          lists all lump names used as wall patches. [8-5].
+GENMIDI         General Midi standard instrument data. [7-3].
+DMXGUS          Gravis Ultra Sound instrument patches. [7-4].
+
+D_ExMy          music for a doom 1 level. [7-2].
+D_INTER         music played on the summary screen between levels.
+D_INTRO         music played when the game starts.
+D_INTROA  1.2   more introductory music.
+D_VICTOR        music played on the victory text-screen after an episode.
+D_BUNNY   r     music for while a certain rabbit has his story told...
+D_*       2     music for a doom 2 level.
+
+DP_*      vary  PC speaker sound effects. [7-1].
+DS_*      vary  Soundcard sound effects. [7-1].
+
+  All the remaining entries in the directory, except the flats between
+F_START and F_END, and the &quot;markers&quot; like S_START, refer to lumps which
+are pictures, in the doom/wad graphic format described in chapter [5].
+The flats are also pictures, but in a format described in chapter [6].
+  The next seven are full screen (320 by 200 pixel) pictures. After
+that, ST* are status-bar pictures, WI* are for the screens between
+levels, and M_* are for menus.
+
+HELP1           Ad-screen says Register!, with some screen shots.
+HELP2           Actual help, all the controls explained.
+TITLEPIC        Maybe this is the title screen? Gee, I dunno...
+CREDIT          People at id Software who created this great game.
+VICTORY2  r     Screen shown after a victorious end to episode 2.
+PFUB1     r     A nice little rabbit minding his own peas and queues...
+PFUB2     r     ...a hint of what's waiting in Doom 2.
+
+ENDx      r     x=0-6, big red &quot;THE END&quot; gets shot up.
+AMMNUMx         x=0-9. Small grey digits for ammo count (15/200 etc).
+STxBARy   1.1   x=M or A, y= L or R. Status bar used to be in pieces.
+STCHAT    1.1   Status bar used to have a &quot;chat&quot; box.
+STRSNUMx  1.1   x=0-9. Small red digits.
+STWEAPx   1.1   x=0-5. COOL little weapon icons. Why'd they drop them?
+STFRAGS   1.1   Tiny &quot;FRAG&quot; to be placed on top of part of status bar.
+STBAR     1.2   Status Bar as used in deathmatches.
+STGNUMx         x=0-9. Small grey digits used on the &quot;Arms&quot; panel.
+STTNUMx         x=0-9. Big red digits used for Armor, Health, etc.
+STTMINUS  1.6   Big red &quot;-&quot; used for negative frags.
+STYSNUMx        x=0-9. Small yellow digits used on the &quot;Arms&quot; panel.
+STTPRCNT        Big red % used in Armor and Health.
+STKEYSx         x=0-5. Blue/Yellow/Red Keycards and Skullkeys.
+STDISK          Disk, used at bottom right corner during disk accesses.
+STCDROM   1.6   CD, used during CD-ROM accesses.
+STARMS          &quot;Arms&quot; panel which replaces &quot;Frags&quot; in non-deathmatch.
+STCFNxxx        xxx=033-095, also 121. Small red ASCII characters.
+STFBx           x=0-3. Green/black/brown/red squares, for ST player faces.
+STPBx           x=0-3. Squares with bottoms, for inter-level screens.
+STFSTxy         x=0-4, y=0-2. Player face. x=0 is 100% health...x=4 is
+                  very low health. y=0 is glancing right, y=2 left.
+STFTLx0         x=0-4. Face looking left, player hurt from that direction.
+STFTRx0         x=0-4. Face looking right.
+STFOUCHx        x=0-4. Face looking surprised (hurt bad).
+STFEVLx         x=0-4. Face with a grin (when pick up new weapons).
+STFKILLx        x=0-4. Face with a grimace (when killing foes).
+STFGOD0         Face with yellow eyes (invulnerable).
+STFDEAD0        Dead face.
+BRDR_*          Tiny pictures used as a border between a less-than-full
+                  screen view and the &quot;outside&quot; marbleized zone. TL is
+                  top left, BR bottom right, you can guess the rest.
+WIBONUS   1.1   Medium sized red text &quot;BONUS&quot;
+WISCORE   1.1   &quot;SCORE&quot;
+WIMSTPx   1.1   x=0-3. Red text &quot;ONE&quot; to &quot;FOUR&quot;.
+WIMSTBx   1.1   x=0-3. Grey text &quot;ONE&quot; to &quot;FOUR&quot;.
+WIMINUS   1.6   Small red &quot;-&quot; used for negative frags.
+WIMAPx          x=0-2. 320x200 maps used on inter-level screens for e1,2,3.
+WIAe0x0y        patches used to animate inter-level maps.
+WIURH0          &quot;YOU ARE HERE&quot; with an arrow pointing left.
+WIURH1          &quot;YOU ARE HERE&quot; with an arrow pointing right.
+WISPLAT         Splat mark that indicates a completed level.
+WIOSTK          &quot;KILLS&quot;
+WIOSTI          &quot;ITEMS&quot;
+WIF             &quot;FINISHED&quot;
+WIMSTT          &quot;TOTAL&quot;
+WIOSTS          &quot;SCRT&quot;
+WIOSTF          &quot;F.&quot;
+WITIME          &quot;TIME&quot;
+WIPAR           &quot;PAR&quot;
+WIMSTAR         &quot;YOU&quot;
+WIPCNT          &quot;%&quot;
+WINUMx          x=0-9. Medium sized red digits.
+WICOLON         &quot;:&quot;
+WISUCKS         &quot;SUCKS&quot;
+WIFRGS          &quot;FRAGS&quot;
+WILVxy          x=0-2, y=0-8. E(x+1)M(y+1) level names in grey/white letters.
+WIPx            x=1-4. Red &quot;P1&quot; - &quot;P4&quot;, for multiplayer summaries.
+WIBPx           x=1-4. Grey &quot;P1&quot; - &quot;P4&quot;
+WIKILRS         Small red &quot;KILLERS&quot; going sideways up, for deathmatches.
+WIVCTMS         Small red &quot;VICTIMS&quot; for the top of the deathmatch chart.
+WISCRT2         &quot;SECRET&quot;
+WIENTER         &quot;ENTERING&quot;
+M_DOOM          The DOOM logo
+M_RDTHIS        Big red &quot;Read This!&quot;
+M_OPTION        &quot;Options&quot;
+M_QUITG         &quot;Quit Game&quot;
+M_NGAME         &quot;New Game&quot;
+M_SKULL1        The skull indicator with eyes lit.
+M_SKULL2        The skull indicator with eyes unlit.
+M_THERMO        The marker on e.g. the Sfx volume &quot;thermometer&quot;.
+M_THERMR        The right end of the thermometer.
+M_THERML        The left end.
+M_THERMM        The middle, repeated over and over.
+M_ENDGAM        &quot;End Game&quot;
+M_PAUSE         &quot;Pause&quot;
+M_MESSG         &quot;Messages:&quot;
+M_MSGON         &quot;on&quot;
+M_MSGOFF        &quot;off&quot;
+M_EPISOD        &quot;Which Epsiode?&quot;
+M_EPI1          &quot;Knee-Deep In The Dead&quot;
+M_EPI2          &quot;The Shores Of Hell&quot;
+M_EPI3          &quot;Inferno&quot;
+M_HURT          &quot;Hurt me plenty.&quot;
+M_JKILL         &quot;I'm too young to die.&quot;
+M_ROUGH         &quot;Hey, not too rough.&quot;
+M_SKILL         &quot;Choose Skill Level:&quot;
+M_NEWG          &quot;NEW GAME&quot; (title of New Game menu)
+M_ULTRA         &quot;Ultra-Violence.&quot;
+M_NMARE   1.2   &quot;Nightmare!&quot;
+M_SVOL          &quot;Sound Volume&quot;
+M_OPTTTL        &quot;OPTIONS&quot; (title of Options menu)
+M_SAVEG         &quot;Save Game&quot;
+M_LOADG         &quot;Load Game&quot;
+M_DISP          &quot;Display&quot;
+M_MSENS         &quot;Mouse sensitivity&quot;
+M_GDHIGH        &quot;high&quot;
+M_GDLOW         &quot;low&quot;
+M_DETAIL        &quot;Graphic Detail:&quot;
+M_DISOPT        &quot;DISPLAY OPTIONS&quot;
+M_SCRNSZ        &quot;Screen Size&quot;
+M_SGTTL         &quot;SAVE GAME&quot;
+M_LGTTL         &quot;LOAD GAME&quot;
+M_SFXVOL        &quot;Sfx Volume&quot;
+M_MUSVOL        &quot;Music Volume&quot;
+M_LSLEFT        Load/save box, left part
+M_LSCNTR        Load/save box, center part (repeated)
+M_LSRGHT        Load/save box, right part
+
+  The following entries are markers that do not point to a lump; they
+have zero size:
+
+S_START         marks the start of the item/monster &quot;sprite&quot; section.
+                  See chapter [5] for the naming convention used here.
+S_END           is immediately after the last sprite.
+P_START         marks the beginning of the wall patches.
+P1_START          before the first of the shareware wall patches.
+P1_END            after the last of the shareware wall patches.
+P2_START  r       registered wall patches.
+P2_END    r       registered wall patches.
+P_END           marks the end of the wall patches.
+F_START         marks the beginning of the flats (floor textures).
+F1_START          shareware flats.
+F1_END            shareware flats.
+F2_START  r       registered flats.
+F2_END    r       registered flats.
+F_END           marks the end of the flats.
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="basics/terminology-conventions.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="the-levels/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="basics/terminology-conventions.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="the-levels/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
