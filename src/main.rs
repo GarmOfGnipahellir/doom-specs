@@ -19,7 +19,7 @@ fn main() {
     //     println!("{subheader}");
     // }
 
-    // let re = Regex::new(r"(?m)^-+\r\n(^.+\w)\r\n^-+").unwrap();
+    // let re = Regex::new(r"(?m)^-+(?:(?:\n)|(?:\r\n))(^.+\w)(?:(?:\n)|(?:\r\n))^-+").unwrap();
     // let mut iter = re.split(DMSP);
 
     // println!("{:?}\n", iter.next().unwrap());
@@ -84,13 +84,12 @@ fn main() {
     pages.push(appendices);
 
     // write pages
+    let root = Path::new("test");
+    create_dir_all(&root).unwrap();
+    let mut summary_file = File::create(root.join("SUMMARY.md")).unwrap();
+    writeln!(summary_file, "# Summary\n").unwrap();
     for page in &pages {
-        page.write_markdown(Path::new("test"));
-    }
-
-    // write summary
-    for page in &pages {
-        // TODO: generate summary
+        page.write_markdown(root, &mut summary_file, root, 0);
     }
 }
 
@@ -102,7 +101,7 @@ struct Page {
 }
 
 impl Page {
-    fn write_markdown(&self, dir: &Path) {
+    fn write_markdown(&self, dir: &Path, mut summary_file: &File, root: &Path, level: u32) {
         let header = parse_header(&self.header);
 
         let dir = if self.children.len() > 0 {
@@ -110,26 +109,46 @@ impl Page {
         } else {
             dir.to_path_buf()
         };
-        create_dir_all(dir.clone()).unwrap();
+        create_dir_all(&dir).unwrap();
 
         let path = if self.children.len() > 0 {
             dir.join("README.md")
         } else {
             dir.join(format!("{}.md", header.to_case(Case::Kebab)))
         };
-        let mut file = File::create(path).unwrap();
+        let mut file = File::create(&path).unwrap();
         writeln!(&mut file, "# {}\n", header).unwrap();
+        writeln!(&mut file, "```").unwrap();
         writeln!(&mut file, "{}", self.body.trim()).unwrap();
+        writeln!(&mut file, "```").unwrap();
+
+        let mut prefix = "".to_string();
+        if header != "Disclaimer" && header != "Copyright Notice" {
+            for _ in 0..level {
+                prefix.push_str("  ");
+            }
+            prefix.push_str("- ");
+        }
+
+        writeln!(
+            summary_file,
+            "{}[{}]({})",
+            prefix,
+            header,
+            path.strip_prefix(root).unwrap().to_str().unwrap()
+        )
+        .unwrap();
 
         for child in &self.children {
-            child.write_markdown(&dir);
+            child.write_markdown(&dir, summary_file, root, level + 1);
         }
     }
 }
 
 fn get_headers(text: &str) -> Vec<String> {
     lazy_static! {
-        static ref RE: Regex = Regex::new(r"(?m)^-+\r\n(^.+\w)\r\n^-+").unwrap();
+        static ref RE: Regex =
+            Regex::new(r"(?m)^-+(?:(?:\n)|(?:\r\n))(^.+\w)(?:(?:\n)|(?:\r\n))^-+").unwrap();
     }
     RE.captures_iter(text)
         .map(|cap| cap[1].to_string())
@@ -138,14 +157,15 @@ fn get_headers(text: &str) -> Vec<String> {
 
 fn get_bodies(text: &str) -> Vec<String> {
     lazy_static! {
-        static ref RE: Regex = Regex::new(r"(?m)^-+\r\n(^.+\w)\r\n^-+").unwrap();
+        static ref RE: Regex =
+            Regex::new(r"(?m)^-+(?:(?:\n)|(?:\r\n))(^.+\w)(?:(?:\n)|(?:\r\n))^-+").unwrap();
     }
     RE.split(text).map(|body| body.to_string()).collect()
 }
 
 fn get_subheaders(text: &str) -> Vec<String> {
     lazy_static! {
-        static ref RE: Regex = Regex::new(r"(?m)(^\[.+\w)\r\n^=+").unwrap();
+        static ref RE: Regex = Regex::new(r"(?m)(^\[.+\w)(?:(?:\n)|(?:\r\n))^=+").unwrap();
     }
     RE.captures_iter(text)
         .map(|cap| cap[1].to_string())
@@ -154,7 +174,7 @@ fn get_subheaders(text: &str) -> Vec<String> {
 
 fn get_subbodies(text: &str) -> Vec<String> {
     lazy_static! {
-        static ref RE: Regex = Regex::new(r"(?m)(^\[.+\w)\r\n^=+").unwrap();
+        static ref RE: Regex = Regex::new(r"(?m)(^\[.+\w)(?:(?:\n)|(?:\r\n))^=+").unwrap();
     }
     RE.split(text).map(|body| body.to_string()).collect()
 }

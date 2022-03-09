@@ -1,73 +1,52 @@
 # Summary
 
-[Disclaimer](./disclaimer.md)
-
-- [Introduction](./introduction/README.md)
-  - [id Software's Copyright](./introduction/id-softwares-copyright.md)
-  - [What's New](./introduction/whats-new.md)
-
-- [The Basics](./the-basics/README.md)
-  - [Pwads](./the-basics/pwads.md)
-<!--
-[1] Introduction
-        [1-1] id Software's Copyright
-        [1-2] What's New
-[2] The Basics
-        [2-1] Pwads
-        [2-2] DOOM version information
-        [2-3] Terminology conventions
-[3] List of DOOM.WAD Directory Entries
-[4] The Levels
-        [4-1] ExMy or MAPxy
-        [4-2] THINGS
-                [4-2-1] Thing Types
-                [4-2-2] Thing Sizes
-                [4-2-3] Thing Options
-        [4-3] LINEDEFS
-                [4-3-1] Linedef Flags
-                [4-3-2] Linedef Types
-        [4-4] SIDEDEFS
-        [4-5] VERTEXES
-        [4-6] SEGS
-        [4-7] SSECTORS
-        [4-8] NODES
-        [4-9] SECTORS
-                [4-9-1] Special Sector Types
-        [4-10] REJECT
-        [4-11] BLOCKMAP
-[5] Graphics
-        [5-1] Picture Format
-[6] Flats (Floor and Ceiling Textures)
-        [6-1] Animated Floors, see [8-4-1]
-[7] Sounds and Music
-        [7-1] PC Speaker Sound Effects
-        [7-2] Soundcard Sound Effects
-        [7-3] Music
-        [7-4] GENMIDI
-        [7-5] DMXGUS
-[8] Miscellaneous Lumps
-        [8-1] PLAYPAL
-        [8-2] COLORMAP
-        [8-3] ENDOOM
-        [8-4] TEXTURE1 and TEXTURE2
-                [8-4-1] Animated Walls
-                [8-4-2] The SKY Textures
-        [8-5] PNAMES
-        [8-6] DEMOs
-                [8-6-1] Level changes from 1.2 to 1.666 DOOM.WAD
-[9] Savegame Files
-
-[10] The DOOM.EXE File
-        [10-1] Version 1.2 DOOM.EXE Data Segment Overview
-        [10-1] Version 1.666 DOOM.EXE Data Segment Overview
-        [10-3] Detail on some EXE Data Structures
-
-APPENDICES
-
-[A-1] Backus-Naur Form definitions of wad elements
-[A-2] Engine limits
-[A-3] DOOM.WAD changes and errors
-[A-3] A BLOCKMAP algorithm
-[A-4] Other helpful documents
-[A-5] Acknowledgments
--->
+[Disclaimer](disclaimer.md)
+[Copyright Notice](copyright-notice.md)
+- [Introduction](introduction/README.md)
+  - [id Software's Copyright and the Shareware Version](introduction/id-software's-copyright-and-the-shareware-version.md)
+  - [What's New](introduction/what's-new.md)
+- [Basics](basics/README.md)
+  - [Pwads](basics/pwads.md)
+  - [DOOM versions](basics/doom-versions.md)
+  - [Terminology conventions](basics/terminology-conventions.md)
+- [List of DOOM.WAD Directory Entries](list-of-doom.wad-directory-entries.md)
+- [The Levels](the-levels/README.md)
+  - [ExMy or MAPxy](the-levels/ex-my-or-ma-pxy.md)
+  - [THINGS](the-levels/things.md)
+  - [LINEDEFS](the-levels/linedefs.md)
+  - [SIDEDEFS](the-levels/sidedefs.md)
+  - [VERTEXES](the-levels/vertexes.md)
+  - [SEGS](the-levels/segs.md)
+  - [SSECTORS](the-levels/ssectors.md)
+  - [NODES](the-levels/nodes.md)
+  - [SECTORS](the-levels/sectors.md)
+  - [REJECT](the-levels/reject.md)
+  - [BLOCKMAP](the-levels/blockmap.md)
+- [Graphics](graphics/README.md)
+  - [Picture Format](graphics/picture-format.md)
+- [Sounds and Music](sounds-and-music/README.md)
+  - [PC Speaker Sound Effects](sounds-and-music/pc-speaker-sound-effects.md)
+  - [Soundcard Sound Effects](sounds-and-music/soundcard-sound-effects.md)
+  - [Music](sounds-and-music/music.md)
+  - [GENMIDI](sounds-and-music/genmidi.md)
+  - [DMXGUS](sounds-and-music/dmxgus.md)
+- [Miscellaneous Lumps](miscellaneous-lumps/README.md)
+  - [PLAYPAL](miscellaneous-lumps/playpal.md)
+  - [COLORMAP](miscellaneous-lumps/colormap.md)
+  - [ENDOOM](miscellaneous-lumps/endoom.md)
+  - [TEXTURE1 and TEXTURE2](miscellaneous-lumps/texture-1-and-texture-2.md)
+  - [PNAMES](miscellaneous-lumps/pnames.md)
+  - [DEMOs](miscellaneous-lumps/dem-os.md)
+  - [Level changes from 1.2 to 1.666 DOOM.WAD](miscellaneous-lumps/level-changes-from-1.2-to-1.666-doom.wad.md)
+- [Savegame Files](savegame-files.md)
+- [The DOOM.EXE File](the-doom.exe-file/README.md)
+  - [Version 1.2 DOOM.EXE Data Segment Overview](the-doom.exe-file/version-1.2-doom.exe-data-segment-overview.md)
+  - [Version 1.666 DOOM.EXE Data Segment Overview](the-doom.exe-file/version-1.666-doom.exe-data-segment-overview.md)
+  - [Detail on some EXE Data Structures](the-doom.exe-file/detail-on-some-exe-data-structures.md)
+- [Appendices](appendices/README.md)
+  - [Backus-Naur Form definitions of WAD elements](appendices/backus-naur-form-definitions-of-wad-elements.md)
+  - [DOOM engine limits](appendices/doom-engine-limits.md)
+  - [DOOM.WAD changes and errors](appendices/doom.wad-changes-and-errors.md)
+  - [A BLOCKMAP algorithm](appendices/a-blockmap-algorithm.md)
+  - [Other helpful documents](appendices/other-helpful-documents.md)
+  - [Acknowledgments](appendices/acknowledgments.md)
